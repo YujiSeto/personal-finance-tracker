@@ -28,3 +28,12 @@ export const formatDate = (date: Date): string => {
 const addZeroToDate = (n: number): string => {
   return n < 10 ? `0${n}` : `${n}`;
 };
+
+export const formatCurrentMonth = (currentMonth: string): string => {
+  const [year, month] = currentMonth.split("-");
+  const monthName = new Date(
+    parseInt(year),
+    parseInt(month) - 1,
+  ).toLocaleString("en-US", { month: "long" });
+  return `${monthName} of ${year}`;
+};
